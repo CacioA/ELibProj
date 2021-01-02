@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1030.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="1000.0" prefHeight="1030.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+    <children>
+        <TextArea fx:id="search_book" layoutX="327.0" layoutY="58.0" prefHeight="47.0" prefWidth="716.0" promptText="Search by keyword" AnchorPane.leftAnchor="268.0" AnchorPane.rightAnchor="936.0">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextArea>
+        <Button fx:id="btn_search_book" layoutX="1017.0" layoutY="61.0" mnemonicParsing="false" onAction="#btn_search_book_clicked" prefHeight="45.0" prefWidth="80.0" text="Search" AnchorPane.rightAnchor="823.0">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+        <Label layoutX="124.0" layoutY="39.0" prefWidth="200.0" text="E-LIB" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="15.0">
+            <font>
+                <Font name="System Bold" size="35.0" />
+            </font>
+        </Label>
+      <TableView fx:id="table_books" layoutX="78.0" layoutY="186.0" minWidth="320.0" prefHeight="320.0" prefWidth="1377.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="465.0">
+        <columns>
+          <TableColumn fx:id="col_book_name" prefWidth="150.0" text="Book Name" />
+          <TableColumn fx:id="col_author" prefWidth="150.0" text="Author" />
+            <TableColumn fx:id="col_year" prefWidth="150.0" text="Year" />
+            <TableColumn fx:id="col_edition" prefWidth="150.0" text="Edition" />
+            <TableColumn fx:id="col_availability" prefWidth="150.0" text="Availability" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_log_in" layoutX="1550.0" layoutY="50.0" mnemonicParsing="false" onAction="#btn_log_in_clicked" prefHeight="56.0" prefWidth="150.0" text="Log In" AnchorPane.rightAnchor="220.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_register" layoutX="1550.0" layoutY="136.0" mnemonicParsing="false" onAction="#btn_register_clicked" prefHeight="56.0" prefWidth="150.0" text="Register" AnchorPane.rightAnchor="220.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
