@@ -67,12 +67,12 @@ public class RegisterController {
     void btn_register_clicked(ActionEvent event) throws SQLException {
         if(fieldsAreNotEmpty()==true && passwordsMatch() ==true){
 
-            User user = new User(text_first_name.getText(),text_last_name.getText(),pwd_password.getText(),text_email.getText());
+            User user = new User(text_first_name.getText(),text_last_name.getText(),pwd_password.getText(),text_username.getText());
 
-           if( userDao.checkUserExists(text_email.getText()) ==true){
+           if( userDao.checkUserExists(text_username.getText()) ==true){
 
-               //userDao.createUser();
-               System.out.println("user does not exist");
+               userDao.createUser(user);
+
            }
            else {
                System.out.println("does exist");

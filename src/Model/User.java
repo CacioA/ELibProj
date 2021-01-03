@@ -5,14 +5,30 @@ public class User {
     private String lastName;
     private int userID;
     private String userPassword;
-    private String userEmail;
+    private String userUsername;
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserUsername() {
+        return userUsername;
+    }
+
+    public void setUserUsername(String userUsername) {
+        this.userUsername = userUsername;
+    }
 
     public User(String firstName, String lastName, String userPassword, String userEmail){
 
         this.firstName=firstName;
         this.lastName=lastName;
         this.userPassword=userPassword;
-        this.userEmail=userEmail;
+        this.userUsername =userEmail;
 
     }
 

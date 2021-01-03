@@ -11,7 +11,7 @@ public interface UserDao {
         public User getUser(int userID);
         public void updateUser(User User);
         public void deleteUser(User User);
-        public void createUser(User user);
+        public void createUser(User user) throws SQLException;
         public boolean checkUserExists(String userEmail) throws SQLException;
     }
 
