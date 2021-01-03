@@ -56,36 +56,50 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public boolean checkUserExists(String userEmail) throws SQLException {
+    public boolean checkUserExists(String userUsername) throws SQLException {
 
-        String queryCheckUser =" SELECT EXISTS (SELECT 1 FROM users WHERE userUsername =?) ;";
+        String queryCheckUser =" SELECT * FROM users WHERE userUsername = ? ;";
 
 
 
 
             PreparedStatement st = this.conn.prepareStatement(queryCheckUser);
-            st.setString(1,userEmail);
+            st.setString(1,userUsername);
 
             ResultSet rs = st.executeQuery();
 
+            if(!rs.isBeforeFirst()){
+                System.out.println("no data, create user");
+                return true;
+            }
+            else{
+                System.out.println("user found, don't");
+                return false;
+            }
 
-        if(rs.next()){
-            //user email not created
-            //call function to create the user
-            System.out.println("username not found, create user");
-            return true;
 
+
+//        if(rs.next()){
+//            //user email not created
+//            //call function to create the user
+//            System.out.println(rs.getString("userUsername"));
+//            if(rs.getString("userUsername").equals(userUsername)) {
+//                System.out.println("username not found, create user");
+//
+//            }
+//            return true;
+//
+//        }
+//        else {
+//            //user email exists
+//            System.out.println("username  found, can't create user");
+//
+//            return false;
         }
-        else {
-            //user email exists
-            System.out.println("username  found, can't create user");
-
-            return false;
-        }
 
 
 
 
 
-    }
+
 }

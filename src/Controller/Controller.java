@@ -63,7 +63,7 @@ public class Controller {
         //Initialise the DBConnection class and create a connection
         this.dbc= new DBConnection();
         this.conn=dbc.DBCon();
-
+        this.table_books.setPlaceholder(new Label(""));
         //set cell value to take a book object and data type.
         // the name of the table view coloumn is named after the db column that it will use
         col_book_name.setCellValueFactory(new PropertyValueFactory<Book,String>("bookName"));

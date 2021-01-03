@@ -5,14 +5,22 @@ import Model.User;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 public class RegisterController {
 
@@ -23,13 +31,8 @@ public class RegisterController {
     private TextField text_last_name;
 
     @FXML
-    private TextField text_dob;
-
-    @FXML
     private TextField text_username;
 
-    @FXML
-    private TextField text_email;
 
     @FXML
     private PasswordField pwd_password;
@@ -43,6 +46,9 @@ public class RegisterController {
     @FXML
     private Button btn_cancel;
 
+    @FXML
+    private Label lbl_user_created_notif;
+
 
 
     public static DBConnection dbc;
@@ -54,6 +60,7 @@ public class RegisterController {
         this.dbc= new DBConnection();
         this.conn=dbc.DBCon();
         this.userDao=new UserDaoImpl();
+
     }
 
     @FXML
@@ -64,7 +71,7 @@ public class RegisterController {
     }
 
     @FXML
-    void btn_register_clicked(ActionEvent event) throws SQLException {
+    void btn_register_clicked(ActionEvent event) throws SQLException, InterruptedException, IOException {
         if(fieldsAreNotEmpty()==true && passwordsMatch() ==true){
 
             User user = new User(text_first_name.getText(),text_last_name.getText(),pwd_password.getText(),text_username.getText());
@@ -72,10 +79,13 @@ public class RegisterController {
            if( userDao.checkUserExists(text_username.getText()) ==true){
 
                userDao.createUser(user);
+               this.lbl_user_created_notif.setVisible(true);
+               TimeUnit.SECONDS.sleep(4);
 
            }
            else {
                System.out.println("does exist");
+               openMainMenu(event);
            }
 
 
@@ -107,5 +117,15 @@ public class RegisterController {
             return true;
         }
         else return false;
+    }
+
+    public void openMainMenu(ActionEvent event) throws IOException {
+
+        Parent root = (Parent) FXMLLoader.load(this.getClass().getResource("/View/MainView.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
     }
 }

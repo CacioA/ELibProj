@@ -80,6 +80,11 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
+            <Label fx:id="lbl_user_created_notif" style="-fx-background-color: #28afb0;" text="You have created your account succesfully!" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Arial Narrow" size="15.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </children>

@@ -24,13 +24,13 @@
                 <Font name="Arial Narrow Bold" size="37.0" />
             </font>
         </Label>
-      <TableView fx:id="table_books" layoutX="84.0" layoutY="206.0" minWidth="320.0" prefHeight="474.0" prefWidth="1227.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="609.0">
+      <TableView fx:id="table_books" layoutX="85.0" layoutY="214.0" minWidth="320.0" prefHeight="474.0" prefWidth="1227.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="608.0">
         <columns>
-          <TableColumn fx:id="col_book_name" minWidth="50.0" prefWidth="245.0" style="-fx-background-color: #28afb0;" text="Book Name" />
-          <TableColumn fx:id="col_author" minWidth="50.0" prefWidth="245.0" style="-fx-background-color: #28afb0;" text="Author" />
-            <TableColumn fx:id="col_year" minWidth="50.0" prefWidth="245.0" style="-fx-background-color: #28afb0;" text="Year" />
-            <TableColumn fx:id="col_edition" minWidth="50.0" prefWidth="245.0" style="-fx-background-color: #28afb0;" text="Edition" />
-            <TableColumn fx:id="col_availability" minWidth="50.0" prefWidth="245.0" style="-fx-background-color: #28afb0;" text="Availability" />
+          <TableColumn fx:id="col_book_name" minWidth="50.0" prefWidth="245.0" text="Book Name" />
+          <TableColumn fx:id="col_author" minWidth="50.0" prefWidth="245.0" text="Author" />
+            <TableColumn fx:id="col_year" minWidth="50.0" prefWidth="245.0" text="Year" />
+            <TableColumn fx:id="col_edition" minWidth="50.0" prefWidth="245.0" style="-fx-header-color: #28afb0;" text="Edition" />
+            <TableColumn fx:id="col_availability" minWidth="50.0" prefWidth="245.0" text="Availability" />
         </columns>
       </TableView>
       <Button fx:id="btn_log_in" layoutX="1614.0" layoutY="50.0" mnemonicParsing="false" onAction="#btn_log_in_clicked" prefHeight="56.0" prefWidth="150.0" style="-fx-background-color: #eeb868;" text="Log In" AnchorPane.rightAnchor="156.0">
