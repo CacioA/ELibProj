@@ -78,23 +78,6 @@ public class UserDaoImpl implements UserDao{
             }
 
 
-
-//        if(rs.next()){
-//            //user email not created
-//            //call function to create the user
-//            System.out.println(rs.getString("userUsername"));
-//            if(rs.getString("userUsername").equals(userUsername)) {
-//                System.out.println("username not found, create user");
-//
-//            }
-//            return true;
-//
-//        }
-//        else {
-//            //user email exists
-//            System.out.println("username  found, can't create user");
-//
-//            return false;
         }
 
 
