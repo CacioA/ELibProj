@@ -72,7 +72,15 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btn_cancel" mnemonicParsing="false" onAction="#btn_cancel_clicked" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #231123;" text="Cancel" textFill="WHITE">
+            <Label fx:id="lbl_user_created_notif" prefHeight="55.0" prefWidth="554.0" style="-fx-background-color: #28afb0;" text="You have created your account succesfully! Click &quot;Go Back&quot; to go back to the main page where you can log in. " textFill="WHITE" visible="false" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btn_goback" mnemonicParsing="false" onAction="#btn_goback_clicked" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #231123;" text="Go back" textFill="WHITE">
                <font>
                   <Font name="Arial Narrow" size="18.0" />
                </font>
@@ -80,11 +88,6 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="lbl_user_created_notif" style="-fx-background-color: #28afb0;" text="You have created your account succesfully!" textFill="WHITE" visible="false">
-               <font>
-                  <Font name="Arial Narrow" size="15.0" />
-               </font>
-            </Label>
          </children>
       </VBox>
    </children>

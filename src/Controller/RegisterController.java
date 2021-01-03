@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +17,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class RegisterController {
 
@@ -44,10 +43,12 @@ public class RegisterController {
     private Button btn_register;
 
     @FXML
-    private Button btn_cancel;
+    private Button btn_goback;
 
     @FXML
     private Label lbl_user_created_notif;
+
+
 
 
 
@@ -64,9 +65,9 @@ public class RegisterController {
     }
 
     @FXML
-    void btn_cancel_clicked(ActionEvent event) {
+    void btn_goback_clicked(ActionEvent event) throws IOException {
 
-        //return to previous page
+        openMainMenu(event);
 
     }
 
@@ -74,18 +75,21 @@ public class RegisterController {
     void btn_register_clicked(ActionEvent event) throws SQLException, InterruptedException, IOException {
         if(fieldsAreNotEmpty()==true && passwordsMatch() ==true){
 
+
             User user = new User(text_first_name.getText(),text_last_name.getText(),pwd_password.getText(),text_username.getText());
 
            if( userDao.checkUserExists(text_username.getText()) ==true){
 
                userDao.createUser(user);
                this.lbl_user_created_notif.setVisible(true);
-               TimeUnit.SECONDS.sleep(4);
+
 
            }
+
            else {
-               System.out.println("does exist");
-               openMainMenu(event);
+
+                showUsernameAlert();
+
            }
 
 
@@ -127,5 +131,14 @@ public class RegisterController {
 
         window.setScene(scene);
         window.show();
+    }
+
+    public void showUsernameAlert(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Username already in use. Please choose a different one.");
+
+        alert.showAndWait();
     }
 }
